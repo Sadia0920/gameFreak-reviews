@@ -8,6 +8,10 @@ import MyReviews from './../pages/MyReviews';
 import GameWatchList from './../pages/GameWatchList';
 import Register from './../pages/Register';
 import Login from './../pages/Login';
+import PCGameDetails from "../pages/PCGameDetails";
+import VRGameDetails from "../pages/VRGameDetails";
+import PlayStationGameDetails from "../pages/PlayStationGameDetails";
+import MobileGameDetails from "../pages/MobileGameDetails";
 
 const router =  createBrowserRouter([
     {
@@ -20,29 +24,45 @@ const router =  createBrowserRouter([
                 element: <Home></Home>,
             },
             {
-                path: 'allReviews',
+                path: '/allReviews',
                 element: <AllReviews></AllReviews>,
             },
            {
-                path: 'addReviews',
+                path: '/addReviews',
                 element: <AddReviews></AddReviews>,
            },
            {
-                path: 'myReviews',
+                path: '/myReviews',
                 element: <MyReviews></MyReviews>,
            },
            {
-                path: 'gameWatchList',
+                path: '/gameWatchList',
                 element: <GameWatchList></GameWatchList>,
            },
            {
-                path: 'register',
+                path: '/register',
                 element: <Register></Register>,
            },
            {
-                path: 'login',
+                path: '/login',
                 element: <Login></Login>,
-           }
+           },
+           {
+                path: '/pcGameDetails',
+                element: <PCGameDetails></PCGameDetails>,
+           },
+           {
+                path: '/vrGameDetails',
+                element: <VRGameDetails></VRGameDetails>,
+           },
+           {
+                path: '/playStationGameDetails',
+                element: <PlayStationGameDetails></PlayStationGameDetails>,
+           },
+           {
+                path: '/mobileGameDetails',
+                element: <MobileGameDetails></MobileGameDetails>,
+           },
         ]
     }
 ])

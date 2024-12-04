@@ -11,7 +11,7 @@ export default function Navbar() {
     <NavLink to='/gameWatchList' className='ml-3 font-semibold text-gray-400'>Game Watch List</NavLink>
     </>
   return (
-    <div className='bg-[#0a3d62] text-[#d4af37] py-5'>
+    <div className='bg-[#0a3d62] text-[#d4af37] py-5 sticky top-0 z-10'>
     <div className="navbar w-10/12 mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
