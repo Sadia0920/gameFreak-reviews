@@ -1,13 +1,17 @@
-import React from 'react'
+import Game1 from '../assets/Need for Speed.jpg'
+import Game2 from '../assets/grand theft auto.jpg'
+import Game3 from '../assets/resident evil.jpg'
+import Game4 from '../assets/prince of persia.jpg'
+
 
 export default function Hero() {
   return (
-    <div>
+    <div className='w-10/12 mx-auto my-7'>
         <div className="carousel w-full">
   <div id="slide1" className="carousel-item relative w-full">
     <img
-      src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-      className="w-full" />
+      src={Game1}
+      className="w-full h-[450px] rounded-xl" />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
       <a href="#slide4" className="btn btn-circle">❮</a>
       <a href="#slide2" className="btn btn-circle">❯</a>
@@ -15,8 +19,8 @@ export default function Hero() {
   </div>
   <div id="slide2" className="carousel-item relative w-full">
     <img
-      src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
-      className="w-full" />
+      src={Game2}
+      className="w-full h-[450px] rounded-xl" />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
       <a href="#slide1" className="btn btn-circle">❮</a>
       <a href="#slide3" className="btn btn-circle">❯</a>
@@ -24,8 +28,8 @@ export default function Hero() {
   </div>
   <div id="slide3" className="carousel-item relative w-full">
     <img
-      src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
-      className="w-full" />
+      src={Game3}
+      className="w-full h-[450px] rounded-xl" />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
       <a href="#slide2" className="btn btn-circle">❮</a>
       <a href="#slide4" className="btn btn-circle">❯</a>
@@ -33,8 +37,8 @@ export default function Hero() {
   </div>
   <div id="slide4" className="carousel-item relative w-full">
     <img
-      src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
-      className="w-full" />
+      src={Game4}
+      className="w-full h-[450px] rounded-xl" />
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
       <a href="#slide3" className="btn btn-circle">❮</a>
       <a href="#slide1" className="btn btn-circle">❯</a>
