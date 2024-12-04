@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function VRGameDetails() {
   return (
         <div className='p-14 text-center my-7 w-10/12 mx-auto rounded-xl bg-[rgb(170,111,219,0.2)]'>
-        <h2 className="text-xl font-bold mb-5">VR Games Details</h2>
+        <h2 className="text-xl font-bold mb-5">VR Games Details<i className="fa-solid fa-vr-cardboard ml-2 text-2xl"></i></h2>
         <p className="font-bold text-gray-600 text-left">
         VR gaming offers immersive gameplay experiences, allowing players to interact with virtual worlds through specialized hardware such as VR headsets, controllers, and motion tracking systems. These games span a variety of genres, from action-packed adventures to relaxing simulations.
         <br/>

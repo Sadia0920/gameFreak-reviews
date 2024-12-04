@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function PlayStationGameDetails() {
   return (
     <div className='p-14 text-center my-7 w-10/12 mx-auto rounded-xl bg-[rgb(46,134,222,0.2)]'>
-    <h2 className="text-xl font-bold mb-5">PlayStation Games Details</h2>
+    <h2 className="text-xl font-bold mb-5">PlayStation Games Details<i class="fa-brands fa-playstation ml-2 text-2xl"></i></h2>
     <p className="font-bold text-gray-600 text-left">
     PlayStation gaming involves playing games on Sony's PlayStation consoles, ranging from the PS1 to the latest PS5. It offers a diverse array of titles, including exclusives, AAA games, indie projects, and remastered classics.
     <br/>

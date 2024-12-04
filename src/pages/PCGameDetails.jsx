@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function PCGameDetails() {
   return (
     <div className='p-14 text-center my-7 w-10/12 mx-auto rounded-xl bg-[rgb(46,134,222,0.2)]'>
-        <h2 className="text-xl font-bold mb-5">PC Games Details</h2>
+        <h2 className="text-xl font-bold mb-5">PC Games Details<i class="fa-solid fa-desktop ml-2 text-2xl"></i></h2>
         <p className="font-bold text-gray-600 text-left">PC gaming is one of the most versatile forms of gaming, offering superior performance, a vast game library, and modding opportunities. Whether you're into high-end AAA titles, indie masterpieces, or competitive esports, PC gaming has something for everyone.
         <br/>
         <br/>

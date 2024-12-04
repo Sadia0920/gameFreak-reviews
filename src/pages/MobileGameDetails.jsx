@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function MobileGameDetails() {
   return (
     <div className='p-14 text-center my-7 w-10/12 mx-auto rounded-xl bg-[rgb(170,111,219,0.2)]'>
-        <h2 className="text-xl font-bold mb-5">Mobile Games Details</h2>
+        <h2 className="text-xl font-bold mb-5">Mobile Games Details<i class="fa-solid fa-mobile-screen ml-2 text-2xl"></i></h2>
         <p className="font-bold text-gray-600 text-left">
         Mobile gaming involves playing video games on smartphones or tablets. It caters to casual players as well as competitive gamers, offering a wide variety of genres, from puzzles to battle royale. The platform is supported by app stores like Google Play (Android) and the Apple App Store (iOS).
         <br/>

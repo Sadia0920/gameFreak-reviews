@@ -10,7 +10,7 @@ export default function GamingPlatform() {
       <div className="card-body">
       <i class="fa-solid fa-desktop text-3xl"></i>
       <h2 className="text-xl font-bold">PC</h2>
-      <p className="font-bold text-gray-600">PC gaming is a popular and versatile form of gaming, offering a wide range of experiences, from casual games to competitive esports.</p>
+      <p className="font-bold text-gray-800">PC gaming is a popular and versatile form of gaming, offering a wide range of experiences, from casual games to competitive esports.</p>
         <div className="card-actions justify-center">
         <Link to='/pcGameDetails'><button className="btn bg-[#0a3d62] text-white">More Details</button></Link>
       </div>
@@ -21,7 +21,7 @@ export default function GamingPlatform() {
   <div className="card-body">
   <i class="fa-solid fa-mobile-screen text-3xl"></i>
     <h2 className="text-xl font-bold">Mobile</h2>
-    <p className="font-bold text-gray-600">Mobile gaming has become one of the most popular forms of gaming worldwide due to its accessibility, affordability, and versatility.</p>
+    <p className="font-bold text-gray-800">Mobile gaming has become one of the most popular forms of gaming worldwide due to its accessibility, affordability, and versatility.</p>
     <div className="card-actions justify-center">
      <Link to='/mobileGameDetails'> <button className="btn bg-[#0a3d62] text-white">More Details</button></Link>
     </div>
@@ -32,7 +32,7 @@ export default function GamingPlatform() {
   <div className="card-body">
   <i class="fa-brands fa-playstation text-3xl"></i>
     <h2 className="text-xl font-bold">PlayStation</h2>
-    <p className="font-bold text-gray-600">PlayStation is one of the most influential gaming platforms in the world, known for high-quality hardware, exclusive games, and a rich gaming experience.</p>
+    <p className="font-bold text-gray-800">PlayStation is one of the most influential gaming platforms in the world, known for high-quality hardware, exclusive games, and a rich gaming experience.</p>
     <div className="card-actions justify-center">
       <Link to='/playStationGameDetails'><button className="btn bg-[#0a3d62] text-white">More Details</button></Link>
     </div>
@@ -43,7 +43,7 @@ export default function GamingPlatform() {
   <div className="card-body">
   <i className="fa-solid fa-vr-cardboard text-3xl"></i>
     <h2 className="text-xl font-bold">VR</h2>
-    <p className="font-bold text-gray-600">VR gaming offers immersive experiences by placing players inside virtual worlds. It enabling users to interact with games in 360-degree spaces.</p>
+    <p className="font-bold text-gray-800">VR gaming offers immersive experiences by placing players inside virtual worlds. It enabling users to interact with games in 360-degree spaces.</p>
     <div className="card-actions justify-center">
       <Link to='/vrGameDetails'><button className="btn bg-[#0a3d62] text-white">More Details</button></Link>
     </div>

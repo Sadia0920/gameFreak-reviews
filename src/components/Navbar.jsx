@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
+import ThemeController from './ThemeController'
 
 export default function Navbar() {
     const links = <>
@@ -11,7 +12,7 @@ export default function Navbar() {
     <NavLink to='/gameWatchList' className='ml-3 font-semibold text-gray-400'>Game Watch List</NavLink>
     </>
   return (
-    <div className='bg-[#0a3d62] text-[#d4af37] py-5 sticky top-0 z-10'>
+    <div className='bg-[#0a3d62] text-[#d4af37] sticky top-0 z-10'>
     <div className="navbar w-10/12 mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
@@ -45,7 +46,7 @@ export default function Navbar() {
   <div className="navbar-end">
     <NavLink to='/login'><a className="btn text-[#0a3d62] font-bold bg-[#d4af37]">Login</a></NavLink>
     <NavLink to='/register'><a className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">Register</a></NavLink>
-    
+    <ThemeController></ThemeController>
   </div>
 </div>
     </div>
