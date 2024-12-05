@@ -12,6 +12,7 @@ import PCGameDetails from "../pages/PCGameDetails";
 import VRGameDetails from "../pages/VRGameDetails";
 import PlayStationGameDetails from "../pages/PlayStationGameDetails";
 import MobileGameDetails from "../pages/MobileGameDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router =  createBrowserRouter([
     {
@@ -29,15 +30,15 @@ const router =  createBrowserRouter([
             },
            {
                 path: '/addReviews',
-                element: <AddReviews></AddReviews>,
+                element: <PrivateRoute><AddReviews></AddReviews></PrivateRoute>,
            },
            {
                 path: '/myReviews',
-                element: <MyReviews></MyReviews>,
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
            },
            {
                 path: '/gameWatchList',
-                element: <GameWatchList></GameWatchList>,
+                element: <PrivateRoute><GameWatchList></GameWatchList></PrivateRoute>,
            },
            {
                 path: '/register',

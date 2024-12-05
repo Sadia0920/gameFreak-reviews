@@ -1,9 +1,11 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register() {
 
-  const {createUser} = useContext(AuthContext);
+  const {createUser,setUser} = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const handleCreateUser = (event) => {
     event.preventDefault();
@@ -20,9 +22,12 @@ export default function Register() {
     createUser(email,password)
     .then(result => {
       console.log(result.user)
+      setUser(result.user)
+      navigate('/')
     })
     .catch(error => {
       console.log(error.message)
+      setUser(null)
     })
 
   }
@@ -58,14 +63,12 @@ export default function Register() {
             <span className="label-text">Password</span>
           </label>
           <input type="password" placeholder="password" name='password' className="input input-bordered" required />
-          <label className="label">
-            
-          </label>
         </div>
         <div className="form-control mt-6">
           <button className="btn bg-[#0a3d62] text-white">Register</button>
         </div>
       </form>
+      <p className='font-semibold text-center px-5 mb-6'>Already have an account? please <Link className='border-b-2 border-[#0a3d62] text-[#0a3d62]' to='/login'>Login</Link></p>
     </div>
   </div>
 </div>

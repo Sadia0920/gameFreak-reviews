@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
-  const {signInUser} = useContext(AuthContext);
+  const {signInUser,signInWithGoogle,setUser} = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const handleSignInUser = (event) => {
     event.preventDefault();
@@ -17,11 +19,26 @@ export default function Login() {
     signInUser(email,password)
     .then(result => {
       console.log(result.user)
+      setUser(result.user)
+      navigate('/')
     })
     .catch(error => {
       console.log(error.message)
+      setUser(null)
     })
 
+  }
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+    .then(result => {
+      console.log(result.user)
+      setUser(result.user)
+      navigate('/')
+    })
+    .catch(error => {
+      console.log(error)
+      setUser(null)
+    })
   }
   return (
     <div className='my-7 w-6/12 mx-auto'>
@@ -51,6 +68,12 @@ export default function Login() {
           <button className="btn bg-[#0a3d62] text-white">Login</button>
         </div>
       </form>
+      <div className="mx-auto">
+          <button onClick={handleGoogleLogin} className="btn px-[105px] mb-4 bg-[#d4af37] text-[#0a3d62]">
+            <i className="fa-brands fa-google"></i>
+            Login With Google</button>
+      </div>
+        <p className='font-semibold text-center px-5 mb-6'>Don't have an account? please <Link className='border-b-2 border-[#0a3d62] text-[#0a3d62]' to='/register'>Register</Link></p>
     </div>
   </div>
 </div>
