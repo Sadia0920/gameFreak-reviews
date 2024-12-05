@@ -1,15 +1,37 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 import ThemeController from './ThemeController'
+import { AuthContext } from '../provider/AuthProvider'
 
 export default function Navbar() {
+
+    const {signOutUser,user,setUser} = useContext(AuthContext)
+
+    const handleSignOut = () => {
+      console.log('logOut')
+      signOutUser()
+      .then(()=>{
+        console.log('SignOut Successfully')
+        setUser(null)
+      })
+      .catch(error => {
+        console.log(error.message)
+      })
+    }
+
     const links = <>
     <NavLink to='/' className='font-semibold text-gray-400'>Home</NavLink>
     <NavLink to='/allReviews' className='ml-3 font-semibold text-gray-400'>All Reviews</NavLink>
+  {
+    user && 
+    <>
     <NavLink to='/addReviews' className='ml-3 font-semibold text-gray-400'>Add Reviews</NavLink>
     <NavLink to='/myReviews' className='ml-3 font-semibold text-gray-400'>My Reviews</NavLink>
     <NavLink to='/gameWatchList' className='ml-3 font-semibold text-gray-400'>Game Watch List</NavLink>
+    </>
+  }
+    
     </>
   return (
     <div className='bg-[#0a3d62] text-[#d4af37] sticky top-0 z-10'>
@@ -44,8 +66,20 @@ export default function Navbar() {
     </ul>
   </div>
   <div className="navbar-end">
-    <NavLink to='/login'><a className="btn text-[#0a3d62] font-bold bg-[#d4af37]">Login</a></NavLink>
+    {/* <NavLink to='/login'><a className="btn text-[#0a3d62] font-bold bg-[#d4af37]">Login</a></NavLink>
     <NavLink to='/register'><a className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">Register</a></NavLink>
+    <a onClick={handleSignOut} className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">LogOut</a> */}
+    {
+      user?
+      <>
+      <img className='w-8 h-8 rounded-full' src={user.photoURL} alt="" />
+      <Link onClick={handleSignOut} className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">LogOut</Link>
+      </>
+      :<>
+      <Link to='/login' className="btn text-[#0a3d62] font-bold bg-[#d4af37]">Login</Link>
+      <Link to='/register' className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">Register</Link>
+      </>
+    }
     <ThemeController></ThemeController>
   </div>
 </div>
