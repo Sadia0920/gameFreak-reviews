@@ -1,7 +1,7 @@
-import React from 'react'
 import card2 from '../assets/card2.jpg'
+import { Link } from 'react-router-dom'
 
-export default function MyReviews() {
+export default function ReviewCard() {
   return (
     <div>
       <div className="card card-side bg-base-100 shadow-xl">
@@ -19,8 +19,6 @@ export default function MyReviews() {
     <h2 className="text-lg font-semibold">Category: <span className='text-gray-500'>category</span></h2>
    </div>
     <div className="card-actions flex-col justify-end">
-    <button className="btn bg-green-200"><i className="fa-regular fa-pen-to-square"></i></button>
-    <button className="btn bg-red-200"><i className="fa-regular fa-trash-can"></i></button>
       {/* <Link to={`/details/${_id}`}><button className="btn bg-orange-200"><i className="fa-regular fa-eye"></i></button></Link> */}
       {/* <Link to={`/updateCoffee/${_id}`} ><button className="btn bg-green-200"><i className="fa-regular fa-pen-to-square"></i></button></Link> */}
       {/* <button onClick={()=>handleDelete(_id)} className="btn bg-red-200"><i className="fa-regular fa-trash-can"></i></button> */}
