@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Swal from 'sweetalert2';
+import { AuthContext } from '../provider/AuthProvider';
 
 export default function AddReviews() {
+    const {user} = useContext(AuthContext);
   const [selectedValue, setSelectedValue] = useState("");
   const handleChange = (event) => {
     event.preventDefault();
@@ -53,7 +55,7 @@ export default function AddReviews() {
                 <div className="label">
                 <span className="label-text font-bold">Your Name</span>
                 </div>
-                <input type="text" placeholder="Enter Your Name" name='yourName' className="input input-bordered w-full" required/>
+                <input type="text" defaultValue={user.name} placeholder="Enter Your Name" name='yourName' className="input input-bordered w-full" required/>
                 </label>
             </div>
             <div className='md:w-1/2'>
@@ -61,7 +63,7 @@ export default function AddReviews() {
                 <div className="label">
                 <span className="label-text font-bold">Your Email</span>
                 </div>
-                <input type="email" placeholder="Enter Your Email" name='email' className="input input-bordered w-full" required/>
+                <input type="email" defaultValue={user.email} placeholder="Enter Your Email" name='email' className="input input-bordered w-full" required/>
                 </label>
             </div>
         </div>

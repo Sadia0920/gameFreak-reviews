@@ -13,6 +13,7 @@ import VRGameDetails from "../pages/VRGameDetails";
 import PlayStationGameDetails from "../pages/PlayStationGameDetails";
 import MobileGameDetails from "../pages/MobileGameDetails";
 import PrivateRoute from "./PrivateRoute";
+import ReviewDetails from "../pages/ReviewDetails";
 
 const router =  createBrowserRouter([
     {
@@ -29,6 +30,11 @@ const router =  createBrowserRouter([
                 path: '/allReviews',
                 element: <AllReviews></AllReviews>,
                 loader: ()=>fetch('http://localhost:5000/reviews')
+            },
+            {
+                path: '/reviewDetails/:id',
+                element: <ReviewDetails></ReviewDetails>,
+                loader: ({params})=>fetch(`http://localhost:5000/reviews/${params.id}`)
             },
            {
                 path: '/addReviews',
