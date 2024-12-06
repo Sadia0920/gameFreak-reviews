@@ -14,6 +14,7 @@ import PlayStationGameDetails from "../pages/PlayStationGameDetails";
 import MobileGameDetails from "../pages/MobileGameDetails";
 import PrivateRoute from "./PrivateRoute";
 import ReviewDetails from "../pages/ReviewDetails";
+import UpdateReview from "../pages/UpdateReview";
 
 const router =  createBrowserRouter([
     {
@@ -43,10 +44,16 @@ const router =  createBrowserRouter([
            {
                 path: '/myReviews',
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
+                loader: ()=>fetch('http://localhost:5000/reviews')
            },
+           {
+               path: '/updateReview',
+               element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
+          },
            {
                 path: '/gameWatchList',
                 element: <PrivateRoute><GameWatchList></GameWatchList></PrivateRoute>,
+                loader: ()=>fetch(`http://localhost:5000/watchList`)
            },
            {
                 path: '/register',

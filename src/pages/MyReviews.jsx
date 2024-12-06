@@ -1,31 +1,75 @@
-import React from 'react'
-import card2 from '../assets/card2.jpg'
+import React, { useContext } from 'react'
+import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 export default function MyReviews() {
+  const {user} = useContext(AuthContext)
+  const loadedReviews = useLoaderData();
+    // const {_id,yourName,email,gameName,genres,details,photo,rating,year} = loadedWatchList
+  const setLoadedReviews = loadedReviews.filter((email) => email.email == user.email)
+
+  const handleDeleteUser = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/reviews/${_id}`,{
+          method : 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          if(data.deletedCount > 0){
+          Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+          }
+        })
+      }
+    });
+  }
   return (
-    <div>
-      <div className="card card-side bg-base-100 shadow-xl">
-  <figure className='h-60 w-44 mx-auto'>
-    <img
-      src={card2}
-      alt="Game Review"
-      className='w-full'
-      />
-  </figure>
-  <div className=" flex justify-center items-center gap-12 p-5">
-   <div>
-   <h2 className="text-lg font-semibold">Name: <span className='text-gray-500'>name</span></h2>
-    <h2 className="text-lg my-4 font-semibold">Chef Name: <span className='text-gray-500'>chef</span></h2>
-    <h2 className="text-lg font-semibold">Category: <span className='text-gray-500'>category</span></h2>
-   </div>
-    <div className="card-actions flex-col justify-end">
-    <button className="btn bg-green-200"><i className="fa-regular fa-pen-to-square"></i></button>
-    <button className="btn bg-red-200"><i className="fa-regular fa-trash-can"></i></button>
-      {/* <Link to={`/details/${_id}`}><button className="btn bg-orange-200"><i className="fa-regular fa-eye"></i></button></Link> */}
-      {/* <Link to={`/updateCoffee/${_id}`} ><button className="btn bg-green-200"><i className="fa-regular fa-pen-to-square"></i></button></Link> */}
-      {/* <button onClick={()=>handleDelete(_id)} className="btn bg-red-200"><i className="fa-regular fa-trash-can"></i></button> */}
-    </div>
-  </div>
+    <div className='w-10/12 mx-auto py-7'>
+      <div className="overflow-x-auto">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+        <th></th>
+        <th>User Name</th>
+        <th>Game Name</th>
+        <th>Genres</th>
+        <th>Rating</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody> 
+      {/* row 1 */}
+     {
+      setLoadedReviews.map((review,idx) =>  <tr key={review._id}>
+        <th>{idx + 1}</th>
+        <td>{review.yourName}</td>
+        <td>{review.gameName}</td>
+        <td>{review.genres}</td>
+        <td>{review.rating} Stars</td>
+    
+        <td>
+          <Link to='/updateReview'><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link>
+          <button onClick={()=>handleDeleteUser(review._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button> 
+      </td>
+      </tr>)
+      }
+      </tbody>
+  </table>
 </div>
     </div>
   )

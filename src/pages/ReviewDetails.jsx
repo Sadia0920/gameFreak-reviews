@@ -1,12 +1,37 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2';
 
 export default function ReviewDetails() {
     const loadedReviewDetails = useLoaderData()
     const {_id,yourName,email,gameName,genres,details,photo,rating,year} = loadedReviewDetails
+    const navigate = useNavigate()
 
-    const handleAddToWatchList = () => {
-        console.log('Added To WatchList')
+    const handleAddToWatchList = (email) => {
+        
+        const newWishList = {yourName,email,gameName,genres,details,photo,rating,year}
+        console.log(newWishList)
+        // send data to the server
+        fetch('http://localhost:5000/watchList',{
+          method : 'POST',
+          headers : {
+              'content-type' : 'application/json'
+          },
+          body : JSON.stringify(newWishList)
+      })
+      .then(res => res.json())
+      .then(data => {
+          console.log(data)
+          if(data.insertedId){
+              Swal.fire({
+                  title: 'Success',
+                  text: 'WatchList added successfully',
+                  icon: 'success',
+                  confirmButtonText: 'Ok'
+                })
+                navigate('/gameWatchList')
+          }
+      })
     }
   return (
     <div className='w-7/12 mx-auto my-7'>
@@ -27,7 +52,7 @@ export default function ReviewDetails() {
     <p className="text-lg mb-2 font-semibold">Reviewer's email :<span className='text-gray-500'>{email}</span></p>
     
     <div className="card-actions">
-      <button onClick={handleAddToWatchList} className="btn bg-[#0a3d62] text-[#d4af37]">Add to WatchList</button>
+      <button onClick={()=>handleAddToWatchList(email)} className="btn bg-[#0a3d62] text-[#d4af37]">Add to WatchList</button>
     </div>
   </div>
 </div>

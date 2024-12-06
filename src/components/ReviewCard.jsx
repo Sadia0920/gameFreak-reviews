@@ -1,4 +1,3 @@
-import card2 from '../assets/card2.jpg'
 import { Link } from 'react-router-dom'
 
 export default function ReviewCard({review}) {

@@ -1,11 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Register() {
 
   const {createUser,setUser,updateUserInfo} = useContext(AuthContext);
   const navigate = useNavigate()
+  const [showPassword,setShowPassword]=useState(false)
+  const [errorMessage,setErrorMessage]=useState('')
 
   const handleCreateUser = (event) => {
     event.preventDefault();
@@ -18,12 +21,22 @@ export default function Register() {
     const newUser = {name,photo,email,password}
     console.log(newUser);
 
+    setErrorMessage('')
+
+     const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+     if(!regex.test(password)){
+      setErrorMessage('Please give a valid password with at lease one Uppercase, one Lowercase and length must be 6 character or more.')
+      return;
+    }
+
     // CreateUser
     createUser(email,password)
     .then(result => {
-      //console.log(result.user)
       setUser(result.user)
-      // UpdateUser
+      form.reset();
+      navigate('/')
+    // UpdateUser
     const profile = {
       displayName: name,
       photoURL: photo
@@ -31,29 +44,16 @@ export default function Register() {
     updateUserInfo(profile)
     .then((res)=>{
       console.log(res.user)
-      navigate('/')
     })
-    .catch(err => {
+    .catch(error => {
+      setErrorMessage(error.message)
     })
-      navigate('/')
     })
     .catch(error => {
       console.log(error.message)
+      setErrorMessage(error.message)
       setUser(null)
     })
-
-    // // UpdateUser
-    // const profile = {
-    //   displayName: name,
-    //   photoURL: photo
-    // }
-    // updateUserInfo(profile)
-    // .then((res)=>{
-    //   console.log(res.user)
-    //   navigate('/')
-    // })
-    // .catch(err => {
-    // })
 
   }
   return (
@@ -83,16 +83,21 @@ export default function Register() {
           </label>
           <input type="email" placeholder="email" name='email' className="input input-bordered " required />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" name='password' className="input input-bordered" required />
+          <input type={showPassword?'text':'password'}  placeholder="password" name='password' className="input input-bordered" required />
+          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[300PX]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
         </div>
         <div className="form-control mt-6">
           <button className="btn bg-[#0a3d62] text-white">Register</button>
         </div>
       </form>
+      {/* Show Error Message */}
+      {
+        errorMessage && <p className='text-red-600 mb-6 mx-auto px-2'>{errorMessage}</p>
+      }
       <p className='font-semibold text-center px-5 mb-6'>Already have an account? please <Link className='border-b-2 border-[#0a3d62] text-[#0a3d62]' to='/login'>Login</Link></p>
     </div>
   </div>

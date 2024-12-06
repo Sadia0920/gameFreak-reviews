@@ -1,10 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function Login() {
   const {signInUser,signInWithGoogle,setUser} = useContext(AuthContext);
   const navigate = useNavigate()
+  const [showPassword,setShowPassword]=useState(false)
+  const [errorMessage,setErrorMessage]=useState('')
 
   const handleSignInUser = (event) => {
     event.preventDefault();
@@ -15,6 +18,8 @@ export default function Login() {
     const user = {email,password}
     console.log(user);
 
+    setErrorMessage('')
+
     // SignInUser
     signInUser(email,password)
     .then(result => {
@@ -24,6 +29,7 @@ export default function Login() {
     })
     .catch(error => {
       console.log(error.message)
+      setErrorMessage(error.message)
       setUser(null)
     })
 
@@ -37,6 +43,7 @@ export default function Login() {
     })
     .catch(error => {
       console.log(error)
+      setErrorMessage(error.message)
       setUser(null)
     })
   }
@@ -55,11 +62,12 @@ export default function Login() {
           </label>
           <input type="email" placeholder="email" name='email' className="input input-bordered " required />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" name='password' className="input input-bordered" required />
+          <input type={showPassword?'text':'password'} placeholder="password" name='password' className="input input-bordered" required />
+          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[300PX]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
@@ -68,6 +76,10 @@ export default function Login() {
           <button className="btn bg-[#0a3d62] text-white">Login</button>
         </div>
       </form>
+      {/* Show Error Message */}
+      {
+        errorMessage && <p className='text-red-600 mb-6 mx-auto px-2'>{errorMessage}</p>
+      }
       <div className="mx-auto">
           <button onClick={handleGoogleLogin} className="btn px-[105px] mb-4 bg-[#d4af37] text-[#0a3d62]">
             <i className="fa-brands fa-google"></i>
