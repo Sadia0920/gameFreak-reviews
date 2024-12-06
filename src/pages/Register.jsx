@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register() {
 
-  const {createUser,setUser} = useContext(AuthContext);
+  const {createUser,setUser,updateUserInfo} = useContext(AuthContext);
   const navigate = useNavigate()
 
   const handleCreateUser = (event) => {
@@ -21,14 +21,39 @@ export default function Register() {
     // CreateUser
     createUser(email,password)
     .then(result => {
-      console.log(result.user)
+      //console.log(result.user)
       setUser(result.user)
+      // UpdateUser
+    const profile = {
+      displayName: name,
+      photoURL: photo
+    }
+    updateUserInfo(profile)
+    .then((res)=>{
+      console.log(res.user)
+      navigate('/')
+    })
+    .catch(err => {
+    })
       navigate('/')
     })
     .catch(error => {
       console.log(error.message)
       setUser(null)
     })
+
+    // // UpdateUser
+    // const profile = {
+    //   displayName: name,
+    //   photoURL: photo
+    // }
+    // updateUserInfo(profile)
+    // .then((res)=>{
+    //   console.log(res.user)
+    //   navigate('/')
+    // })
+    // .catch(err => {
+    // })
 
   }
   return (
