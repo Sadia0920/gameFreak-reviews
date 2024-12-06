@@ -1,30 +1,27 @@
 import card2 from '../assets/card2.jpg'
 import { Link } from 'react-router-dom'
 
-export default function ReviewCard() {
+export default function ReviewCard({review}) {
+  const {yourName,email,gameName,genres,details,photo,rating,year} =review
   return (
     <div>
-      <div className="card card-side bg-base-100 shadow-xl">
-  <figure className='h-60 w-44 mx-auto'>
+      <div className="card bg-base-100 shadow-xl">
+  <figure className="px-5 pt-5 h-[200px] w-[350px] mx-auto">
     <img
-      src={card2}
-      alt="Game Review"
-      className='w-full'
-      />
+      src={photo}
+      alt="Games"
+      className="rounded-xl w-full h-full" />
   </figure>
-  <div className=" flex justify-center items-center gap-12 p-5">
-   <div>
-   <h2 className="text-lg font-semibold">Name: <span className='text-gray-500'>name</span></h2>
-    <h2 className="text-lg my-4 font-semibold">Chef Name: <span className='text-gray-500'>chef</span></h2>
-    <h2 className="text-lg font-semibold">Category: <span className='text-gray-500'>category</span></h2>
-   </div>
-    <div className="card-actions flex-col justify-end">
-      {/* <Link to={`/details/${_id}`}><button className="btn bg-orange-200"><i className="fa-regular fa-eye"></i></button></Link> */}
-      {/* <Link to={`/updateCoffee/${_id}`} ><button className="btn bg-green-200"><i className="fa-regular fa-pen-to-square"></i></button></Link> */}
-      {/* <button onClick={()=>handleDelete(_id)} className="btn bg-red-200"><i className="fa-regular fa-trash-can"></i></button> */}
+  <div className="card-body items-center text-center">
+    <h2 className="card-title">{gameName}</h2>
+    <p className="text-lg font-semibold">Genres :<span className='text-gray-500'>{genres}</span></p>
+    <p className="text-lg mb-2 font-semibold">Rating :<span className='text-gray-500'>{rating}</span></p>
+    
+    <div className="card-actions">
+      <button className="btn bg-[#0a3d62] text-[#d4af37]">Explore Details</button>
     </div>
   </div>
 </div>
-    </div>
+</div>
   )
 }

@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
+import Swal from 'sweetalert2';
 
 export default function AddReviews() {
   const [selectedValue, setSelectedValue] = useState("");
   const handleChange = (event) => {
+    event.preventDefault();
     setSelectedValue(event.target.value);
   };
-  const handleAddReviews = (event) => {
+  const handleAddReview = (event) => {
         event.preventDefault();
         const form = event.target;
         const yourName = form.yourName.value;
@@ -18,13 +20,33 @@ export default function AddReviews() {
         const year = form.year.value;
         const newReview = {yourName,email,gameName,genres,details,photo,rating,year}
         console.log(newReview)
+        // send data to the server
+        fetch('http://localhost:5000/reviews',{
+            method : 'POST',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(newReview)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Review added successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  })
+            }
+        })
         }
   return (
     <div className='w-10/12 mx-auto py-7'>
         <div className=' bg-base-200 rounded-xl p-10'>
             <h2 className='text-center text-4xl font-bold text-[#374151]'>Add Game Reviews</h2>
             <p className='text-center text-[#1B1A1AB3] w-9/12 mx-auto mt-8'>It is a dedicated area where you can add detailed reviews of popular games.This page can significantly enhance user engagement and provide valuable content for visitors.</p>
-        <form onSubmit={handleAddReviews}>
+        <form onSubmit={handleAddReview}>
         <div className='md:flex justify-between items-center gap-5 mt-6'>
             <div className='md:w-1/2'>
                 <label className="form-control">
@@ -57,11 +79,11 @@ export default function AddReviews() {
                <div className="label">
                <span className="label-text font-bold">Genres</span>
                </div>
-               <select id="dropdown" name='genres' value={selectedValue} onChange={handleChange} className='input input-bordered w-full' required>
+               <select id="dropdown" name='genres' value={selectedValue} onChange={handleChange} className='input input-bordered w-full' >
                <option value="" disabled>Select an option</option>
-               <option value="option1">Action</option>
-               <option value="option2">RPG</option>
-               <option value="option3">Adventure</option>
+               <option value="Action">Action</option>
+               <option value="RPG">RPG</option>
+               <option value="Adventure">Adventure</option>
                </select>
             </label>
             </div>

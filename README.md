@@ -1,8 +1,14 @@
-# React + Vite
+# Game-Freak-Reviews
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Live Site URL : 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Features
+- User can register and login to our website and their info are saved.
+- user can also login with google
+- there are some private routes only registered user can access those routes.
+- user can added the game reviews
+- user have see the selected game in watch list
+- user can see all the reviews of game in our website with details button
+- my review section only show the specific user's review
+- our website has theme controller also
+- we have learn more about gaming in gaming platform section
