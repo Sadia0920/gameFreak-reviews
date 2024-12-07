@@ -1,6 +1,6 @@
 # Game-Freak-Reviews
 
-### Live Site URL : 
+### Live Site URL : https://game-freak-reviews-client.web.app
 
 ### Features
 - User can register and login to our website and their info are saved.
