@@ -3,6 +3,8 @@ import { Link, NavLink } from 'react-router-dom'
 import './Navbar.css'
 import ThemeController from './ThemeController'
 import { AuthContext } from '../provider/AuthProvider'
+import { Tooltip } from 'react-tooltip'
+// import ReactTooltip from 'react-tooltip';
 
 export default function Navbar() {
 
@@ -66,13 +68,14 @@ export default function Navbar() {
     </ul>
   </div>
   <div className="navbar-end">
-    {/* <NavLink to='/login'><a className="btn text-[#0a3d62] font-bold bg-[#d4af37]">Login</a></NavLink>
-    <NavLink to='/register'><a className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">Register</a></NavLink>
-    <a onClick={handleSignOut} className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">LogOut</a> */}
     {
       user?
       <>
+      <a data-tooltip-id="my-tooltip"
+  data-tooltip-content={user.displayName}
+  data-tooltip-place="top">
       <img className='w-8 h-8 rounded-full' src={user.photoURL} alt="" />
+      </a>
       <Link onClick={handleSignOut} className="btn text-[#0a3d62] font-bold bg-[#d4af37] ml-4">LogOut</Link>
       </>
       :<>
@@ -83,6 +86,7 @@ export default function Navbar() {
     <ThemeController></ThemeController>
   </div>
 </div>
+<Tooltip id="my-tooltip"/> 
     </div>
   )
 }
