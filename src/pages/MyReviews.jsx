@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -8,6 +8,7 @@ export default function MyReviews() {
   const loadedReviews = useLoaderData();
     // const {_id,yourName,email,gameName,genres,details,photo,rating,year} = loadedWatchList
   const setLoadedReviews = loadedReviews.filter((email) => email.email == user.email)
+  const [reviews,setReviews]=useState(setLoadedReviews)
 
   const handleDeleteUser = (_id) => {
     Swal.fire({
@@ -32,6 +33,8 @@ export default function MyReviews() {
           text: "Your file has been deleted.",
           icon: "success"
         });
+        const remaining = reviews.filter(review => review._id !== _id)
+        setReviews(remaining)
           }
         })
       }
@@ -55,7 +58,7 @@ export default function MyReviews() {
     <tbody> 
       {/* row 1 */}
      {
-      setLoadedReviews.map((review,idx) =>  <tr key={review._id}>
+      reviews.map((review,idx) =>  <tr key={review._id}>
         <th>{idx + 1}</th>
         <td>{review.yourName}</td>
         <td>{review.gameName}</td>
@@ -63,7 +66,7 @@ export default function MyReviews() {
         <td>{review.rating} Stars</td>
     
         <td>
-          <Link to='/updateReview'><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link>
+          <Link to={`/updateReview/${review._id}`}><button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button></Link>
           <button onClick={()=>handleDeleteUser(review._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button> 
       </td>
       </tr>)

@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2';
+import { AuthContext } from '../provider/AuthProvider';
 
 export default function ReviewDetails() {
+    const {user} = useContext(AuthContext)
     const loadedReviewDetails = useLoaderData()
     const {_id,yourName,email,gameName,genres,details,photo,rating,year} = loadedReviewDetails
     const navigate = useNavigate()
 
-    const handleAddToWatchList = (email) => {
-        
+    const handleAddToWatchList = () => {
+        const email = user.email
+        const yourName = user.displayName
         const newWishList = {yourName,email,gameName,genres,details,photo,rating,year}
         console.log(newWishList)
         // send data to the server
@@ -52,7 +55,7 @@ export default function ReviewDetails() {
     <p className="text-lg mb-2 font-semibold">Reviewer's email :<span className='text-gray-500'>{email}</span></p>
     
     <div className="card-actions">
-      <button onClick={()=>handleAddToWatchList(email)} className="btn bg-[#0a3d62] text-[#d4af37]">Add to WatchList</button>
+      <button onClick={()=>handleAddToWatchList()} className="btn bg-[#0a3d62] text-[#d4af37]">Add to WatchList</button>
     </div>
   </div>
 </div>

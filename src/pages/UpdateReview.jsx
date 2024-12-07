@@ -1,15 +1,22 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
+import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function UpdateReview() {
-    const {user} = useContext(AuthContext);
+  const loadData = useLoaderData()
+  const {_id,gameName,genres,details,photo,rating,year} = loadData;
+  const {user} = useContext(AuthContext);
   const [selectedValue, setSelectedValue] = useState("");
+
   const handleChange = (event) => {
     event.preventDefault();
     setSelectedValue(event.target.value);
 };
     const handleUpdatedReview = (event) => {
+        
         event.preventDefault();
+        // const _id = _id;
         const form = event.target;
         const yourName = form.yourName.value;
         const email = form.email.value;
@@ -21,26 +28,26 @@ export default function UpdateReview() {
         const year = form.year.value;
         const newUpdatedReview = {yourName,email,gameName,genres,details,photo,rating,year}
         console.log(newUpdatedReview)
-        // send data to the server
-        // fetch('http://localhost:5000/reviews',{
-        //     method : 'PUT',
-        //     headers : {
-        //         'content-type' : 'application/json'
-        //     },
-        //     body : JSON.stringify(newReview)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data)
-        //     if(data.insertedId){
-        //         Swal.fire({
-        //             title: 'Success',
-        //             text: 'Review added successfully',
-        //             icon: 'success',
-        //             confirmButtonText: 'Ok'
-        //           })
-        //     }
-        // })
+        // update data to the server
+        fetch(`http://localhost:5000/reviews/${_id}`,{
+            method : 'PUT',
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(newUpdatedReview)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount > 0){
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Review Updated successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  })
+            }
+        })
         }
   return (
     <div className='w-10/12 mx-auto py-7'>
@@ -72,7 +79,7 @@ export default function UpdateReview() {
             <div className="label">
             <span className="label-text font-bold">Game Name</span>
             </div>
-            <input type="text" placeholder="Enter Game Name" name='gameName' className="input input-bordered w-full" required />
+            <input type="text" defaultValue={gameName} placeholder="Enter Game Name" name='gameName' className="input input-bordered w-full" required />
             </label>
         </div>
         <div className='md:w-1/2'>
@@ -95,7 +102,7 @@ export default function UpdateReview() {
             <div className="label">
             <span className="label-text font-bold">Game Cover Image</span>
             </div>
-            <input type="text" placeholder="Enter Photo URL" name='photo' className="input input-bordered w-full" required />
+            <input type="text" defaultValue={photo} placeholder="Enter Photo URL" name='photo' className="input input-bordered w-full" required />
             </label>
         </div>
     </div>
@@ -105,7 +112,7 @@ export default function UpdateReview() {
             <div className="label">
             <span className="label-text font-bold">Game Details</span>
             </div>
-            <textarea type="text" placeholder="Game Details" name='details' className="textarea" required></textarea>
+            <textarea type="text" defaultValue={details} placeholder="Game Details" name='details' className="textarea" required></textarea>
             </label>
         </div>
     </div>
@@ -115,7 +122,7 @@ export default function UpdateReview() {
             <div className="label">
             <span className="label-text font-bold">Rating</span>
             </div>
-            <input type="number" placeholder="Enter Your Rating (1-5)" name='rating' className="input input-bordered w-full" required/>
+            <input type="number" defaultValue={rating} placeholder="Enter Your Rating (1-5)" name='rating' className="input input-bordered w-full" required/>
             </label>
         </div>
         <div className='md:w-1/2'>
@@ -123,7 +130,7 @@ export default function UpdateReview() {
             <div className="label">
             <span className="label-text font-bold">Publishing year</span>
             </div>
-            <input type="number" placeholder="Enter Publishing year" name='year' className="input input-bordered w-full" required/>
+            <input type="number" defaultValue={year} placeholder="Enter Publishing year" name='year' className="input input-bordered w-full" required/>
             </label>
         </div>
     </div>
