@@ -35,10 +35,6 @@ export default function ThemeController() {
   className="toggle theme-controller col-span-2 col-start-1 row-start-1 border-sky-400 bg-[#d4af37] [--tglbg:theme(colors.sky.500)] checked:border-blue-800 checked:bg-blue-300
    checked:[--tglbg:theme(colors.blue.900)]" />
       </button>
-      {/* <div className="content"> */}
-        {/* <h1>Welcome to the Gaming Reviews Website</h1> */}
-        {/* <p>Enjoy exploring our reviews!</p> */}
-      {/* </div> */}
     </div>
   )
 }

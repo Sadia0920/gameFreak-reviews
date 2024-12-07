@@ -21,7 +21,7 @@ export default function AddReviews() {
         const rating = form.rating.value;
         const year = form.year.value;
         const newReview = {yourName,email,gameName,genres,details,photo,rating,year}
-        console.log(newReview)
+        // console.log(newReview)
         // send data to the server
         fetch('http://localhost:5000/reviews',{
             method : 'POST',
@@ -32,7 +32,7 @@ export default function AddReviews() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             if(data.insertedId){
                 Swal.fire({
                     title: 'Success',
@@ -41,6 +41,7 @@ export default function AddReviews() {
                     confirmButtonText: 'Ok'
                   })
             }
+            form.reset()
         })
         }
   return (

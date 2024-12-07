@@ -5,11 +5,11 @@ export default function VRGameDetails() {
   return (
         <div className='p-14 text-center my-7 w-10/12 mx-auto rounded-xl bg-[rgb(170,111,219,0.2)]'>
         <h2 className="text-xl font-bold mb-5">VR Games Details<i className="fa-solid fa-vr-cardboard ml-2 text-2xl"></i></h2>
-        <p className="font-bold text-gray-600 text-left">
+        <p className="font-semibold text-left">
         VR gaming offers immersive gameplay experiences, allowing players to interact with virtual worlds through specialized hardware such as VR headsets, controllers, and motion tracking systems. These games span a variety of genres, from action-packed adventures to relaxing simulations.
         <br/>
         <br/>
-        <span className=' text-xl font-bold text-gray-800'>1. Popular Game Genres in VR</span>
+        <span className=' text-xl font-bold text-gray-900'>1. Popular Game Genres in VR</span>
         <br/>
         Action and Adventure: Intense, story-driven experiences with dynamic gameplay.
         <br/>
@@ -22,9 +22,9 @@ export default function VRGameDetails() {
         Horror: Designed to scare with heightened immersion in creepy settings.
         <br/>
         <br/>
-        <span className=' text-xl font-bold text-gray-800'>2. Popular VR Games</span>
+        <span className=' text-xl font-bold text-gray-900'>2. Popular VR Games</span>
         <br/>
-        <span className=' text-lg font-bold text-gray-800'>Action and Adventure Games</span>
+        <span className=' text-lg font-bold text-gray-900'>Action and Adventure Games</span>
         <br/>
         Half-Life: Alyx: A critically acclaimed first-person shooter set in the Half-Life universe.
         <br/>
@@ -32,7 +32,7 @@ export default function VRGameDetails() {
         <br/>
         Boneworks: A physics-based action-adventure game offering realistic interactions.
        <br/>
-        <span className=' text-lg font-bold text-gray-800'>Simulation Games</span>
+        <span className=' text-lg font-bold text-gray-900'>Simulation Games</span>
         <br/>
         Microsoft Flight Simulator (VR): A hyper-realistic flight simulation with VR support.
         <br/>
@@ -40,7 +40,7 @@ export default function VRGameDetails() {
         <br/>
         No Man’s Sky (VR): An open-world space exploration game with VR integration.
         <br/>
-        <span className=' text-lg font-bold text-gray-800'>Rhythm and Music Games</span>
+        <span className=' text-lg font-bold text-gray-900'>Rhythm and Music Games</span>
         <br/>
         Beat Saber: A rhythm game where players slash glowing blocks to the beat of music.
         <br/>
@@ -55,7 +55,7 @@ export default function VRGameDetails() {
         <br/>
         I Expect You to Die: A spy-themed escape room game with clever challenges.
         <br/>
-        <span className=' text-lg font-bold text-gray-800'>Horror Games</span>
+        <span className=' text-lg font-bold text-gray-900'>Horror Games</span>
         <br/>
         Resident Evil 4 VR: A VR adaptation of the classic survival horror game.
         <br/>

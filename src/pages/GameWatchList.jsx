@@ -5,13 +5,10 @@ import { AuthContext } from '../provider/AuthProvider';
 export default function GameWatchList() {
   const {user} = useContext(AuthContext)
   const loadedWatchList = useLoaderData();
-  // const {_id,yourName,email,gameName,genres,details,photo,rating,year} = loadedWatchList
+  
   const showWatchList = loadedWatchList.filter((email) => email.email == user.email)
   return (
     <div className='w-10/12 mx-auto py-7'>
-      {/* <Slide direction="left" duration={1000} delay={300}><h1 className='text-4xl font-bold text-center mb-9'>Welcome to your Game WatchList</h1></Slide> */}
-      <h1 className='text-4xl font-bold text-center mb-9'>Welcome to your Game WatchList</h1>
-      
       <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
@@ -26,7 +23,6 @@ export default function GameWatchList() {
         <th>Rating</th>
         <th>Details</th>
         <th>Year</th>
-        <th>Action</th>
       </tr>
     </thead>
     <tbody> 
@@ -43,10 +39,6 @@ export default function GameWatchList() {
         <td>{list.details}</td>
         <td>{list.year}</td>
     
-        <td>
-          <button className='btn mr-2'><i className="fa-regular fa-pen-to-square"></i></button>
-          {/* <button onClick={()=>handleDeleteUser(user._id)} className='btn'><i className="fa-regular fa-trash-can"></i></button>  */}
-      </td>
       </tr>)
       }
       </tbody>

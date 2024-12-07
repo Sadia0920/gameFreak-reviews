@@ -8,7 +8,7 @@ export default function PrivateRoute({children}) {
   
 if(loading){
   return <span className='block mx-auto loading loading-infinity loading-lg'></span>
-  // return <h1>loading...</h1>
+
 }
 
 if(user){

@@ -5,11 +5,11 @@ export default function MobileGameDetails() {
   return (
     <div className='p-14 text-center my-7 w-10/12 mx-auto rounded-xl bg-[rgb(170,111,219,0.2)]'>
         <h2 className="text-xl font-bold mb-5">Mobile Games Details<i class="fa-solid fa-mobile-screen ml-2 text-2xl"></i></h2>
-        <p className="font-bold text-gray-600 text-left">
+        <p className="font-semibold  text-left">
         Mobile gaming involves playing video games on smartphones or tablets. It caters to casual players as well as competitive gamers, offering a wide variety of genres, from puzzles to battle royale. The platform is supported by app stores like Google Play (Android) and the Apple App Store (iOS).
         <br/>
         <br/>
-        <span className=' text-xl font-bold text-gray-800'>1. Popular Game Genres on Mobile</span>
+        <span className=' text-xl font-bold text-gray-900'>1. Popular Game Genres on Mobile</span>
         <br/>
         Battle Royale: Large-scale multiplayer matches where the last player/team standing wins.
         <br/>
@@ -22,9 +22,9 @@ export default function MobileGameDetails() {
         Casual Games: Easy-to-learn games for short bursts of play.
         <br/>
         <br/>
-        <span className=' text-xl font-bold text-gray-800'>2. Popular Mobile Games</span>
+        <span className=' text-xl font-bold text-gray-900'>2. Popular Mobile Games</span>
         <br/>
-        <span className=' text-lg font-bold text-gray-800'>Battle Royale Games</span>
+        <span className=' text-lg font-bold text-gray-900'>Battle Royale Games</span>
         <br/>
         PUBG Mobile: A battle royale shooter with realistic graphics and mechanics.
         <br/>
@@ -32,7 +32,7 @@ export default function MobileGameDetails() {
         <br/>
         Free Fire: A fast-paced battle royale game optimized for lower-end devices.
         <br/>
-        <span className=' text-lg font-bold text-gray-800'>Casual and Puzzle Games</span>
+        <span className=' text-lg font-bold text-gray-900'>Casual and Puzzle Games</span>
         <br/>
         Candy Crush Saga: A popular match-three puzzle game with hundreds of levels.
         <br/>
@@ -40,7 +40,7 @@ export default function MobileGameDetails() {
         <br/>
         Subway Surfers: An endless runner game with vibrant graphics.
         <br/>
-        <span className=' text-lg font-bold text-gray-800'>Role-Playing and Adventure Games</span>
+        <span className=' text-lg font-bold text-gray-900'>Role-Playing and Adventure Games</span>
         <br/>
         Genshin Impact: An open-world RPG with stunning visuals and engaging combat.
         <br/>
@@ -48,7 +48,7 @@ export default function MobileGameDetails() {
         <br/>
         Fate/Grand Order: A narrative-driven RPG featuring strategic turn-based combat.
         <br/>
-        <span className=' text-lg font-bold text-gray-800'>Simulation Games</span>
+        <span className=' text-lg font-bold text-gray-900'>Simulation Games</span>
         <br/>
         The Sims Mobile: A life simulation game where players create and manage virtual characters.
         <br/>
@@ -56,7 +56,7 @@ export default function MobileGameDetails() {
         <br/>
         Plague Inc.: A strategy game where players design pathogens to infect the world.
         <br/>
-        <span className=' text-lg font-bold text-gray-800'>Competitive and Esports Games</span>
+        <span className=' text-lg font-bold text-gray-900'>Competitive and Esports Games</span>
         <br/>
         Clash Royale: A strategy-based card and tower defense game.
         <br/>
@@ -64,7 +64,7 @@ export default function MobileGameDetails() {
         <br/>
         Brawl Stars: A multiplayer action game with various modes and unique characters.
         <br/>
-        <span className=' text-lg font-bold text-gray-800'>Sports and Racing Games</span>
+        <span className=' text-lg font-bold text-gray-900'>Sports and Racing Games</span>
         <br/>
         FIFA Mobile: A football (soccer) simulation game with realistic gameplay.
         <br/>

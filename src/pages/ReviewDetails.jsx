@@ -13,7 +13,7 @@ export default function ReviewDetails() {
         const email = user.email
         const yourName = user.displayName
         const newWishList = {yourName,email,gameName,genres,details,photo,rating,year}
-        console.log(newWishList)
+        // console.log(newWishList)
         // send data to the server
         fetch('http://localhost:5000/watchList',{
           method : 'POST',
@@ -24,7 +24,7 @@ export default function ReviewDetails() {
       })
       .then(res => res.json())
       .then(data => {
-          console.log(data)
+          // console.log(data)
           if(data.insertedId){
               Swal.fire({
                   title: 'Success',
@@ -37,7 +37,7 @@ export default function ReviewDetails() {
       })
     }
   return (
-    <div className='w-7/12 mx-auto my-7'>
+    <div className='w-11/12 md:w-10/12 lg:w-7/12 mx-auto my-7'>
       <div className="card bg-base-100 shadow-xl">
   <figure className="px-5 pt-5 h-[300PX] w-10/12 mx-auto">
     <img

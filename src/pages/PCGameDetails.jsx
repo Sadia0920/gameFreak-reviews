@@ -5,10 +5,10 @@ export default function PCGameDetails() {
   return (
     <div className='p-14 text-center my-7 w-10/12 mx-auto rounded-xl bg-[rgb(46,134,222,0.2)]'>
         <h2 className="text-xl font-bold mb-5">PC Games Details<i class="fa-solid fa-desktop ml-2 text-2xl"></i></h2>
-        <p className="font-bold text-gray-600 text-left">PC gaming is one of the most versatile forms of gaming, offering superior performance, a vast game library, and modding opportunities. Whether you're into high-end AAA titles, indie masterpieces, or competitive esports, PC gaming has something for everyone.
+        <p className="font-semibold text-left">PC gaming is one of the most versatile forms of gaming, offering superior performance, a vast game library, and modding opportunities. Whether you're into high-end AAA titles, indie masterpieces, or competitive esports, PC gaming has something for everyone.
         <br/>
         <br/>
-        <span className=' text-xl font-bold text-gray-800'>1. Key Features of PC Gaming</span>
+        <span className=' text-xl font-bold text-gray-900'>1. Key Features of PC Gaming</span>
         <br/>
         Customizable Hardware: Gamers can upgrade components (GPU, CPU, RAM) to achieve the best performance.
         <br/>
@@ -17,7 +17,7 @@ export default function PCGameDetails() {
         Broad Compatibility: PCs support a wide variety of peripherals, from gaming keyboards and mice to VR headsets.
         <br/>
         <br/>
-        <span className=' text-xl font-bold text-gray-800'>2. Popular Game Genres on PC</span>
+        <span className=' text-xl font-bold text-gray-900'>2. Popular Game Genres on PC</span>
         <br/>
         First-Person Shooters (FPS): Known for immersive action and competitive multiplayer.
         <br/>
@@ -28,7 +28,7 @@ export default function PCGameDetails() {
         Simulation: Realistic experiences like building cities or flying planes.
         <br/>
         <br/>
-        <span className=' text-xl font-bold text-gray-800'>3. Popular PC Games</span>
+        <span className=' text-xl font-bold text-gray-900'>3. Popular PC Games</span>
         <br/>
         Cyberpunk 2077: A futuristic RPG set in a dystopian world.
         <br/>

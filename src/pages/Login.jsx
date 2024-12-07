@@ -2,12 +2,12 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from 'sweetalert2';
 
 export default function Login() {
   const {signInUser,signInWithGoogle,setUser} = useContext(AuthContext);
   const navigate = useNavigate()
   const [showPassword,setShowPassword]=useState(false)
-  const [errorMessage,setErrorMessage]=useState('')
 
   const handleSignInUser = (event) => {
     event.preventDefault();
@@ -16,21 +16,31 @@ export default function Login() {
     const password = form.password.value;
 
     const user = {email,password}
-    console.log(user);
-
-    setErrorMessage('')
+    // console.log(user);
 
     // SignInUser
     signInUser(email,password)
     .then(result => {
-      console.log(result.user)
+      // console.log(result.user)
       setUser(result.user)
+      Swal.fire({
+        title: 'Success',
+        text: 'Login successfully',
+        icon: 'success',
+        confirmButtonText: 'Done'
+      })
       navigate('/')
+      form.reset()
     })
     .catch(error => {
-      console.log(error.message)
-      setErrorMessage(error.message)
+      // console.log(error.message)
       setUser(null)
+      Swal.fire({
+        title: 'Error',
+        text: error.message,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
     })
 
   }
@@ -43,14 +53,13 @@ export default function Login() {
     })
     .catch(error => {
       console.log(error)
-      setErrorMessage(error.message)
       setUser(null)
     })
   }
   return (
-    <div className='my-7 w-6/12 mx-auto'>
+    <div className='my-7 w-11/12 lg:w-6/12 mx-auto'>
       <div className="hero bg-base-200 rounded-xl py-5">
-  <div className="hero-content flex-col w-8/12 mx-auto">
+  <div className="hero-content flex-col lg:w-8/12 mx-auto">
     <div className="text-center">
       <h1 className="text-3xl font-bold text-gray-800">Login now!</h1>
     </div>
@@ -67,7 +76,7 @@ export default function Login() {
             <span className="label-text">Password</span>
           </label>
           <input type={showPassword?'text':'password'} placeholder="password" name='password' className="input input-bordered" required />
-          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[300PX]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
+          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[230px] lg:ml-[300PX]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
@@ -76,12 +85,9 @@ export default function Login() {
           <button className="btn bg-[#0a3d62] text-white">Login</button>
         </div>
       </form>
-      {/* Show Error Message */}
-      {
-        errorMessage && <p className='text-red-600 mb-6 mx-auto px-2'>{errorMessage}</p>
-      }
+      
       <div className="mx-auto">
-          <button onClick={handleGoogleLogin} className="btn px-[105px] mb-4 bg-[#d4af37] text-[#0a3d62]">
+          <button onClick={handleGoogleLogin} className="btn px-[65px] lg:px-[105px] mb-4 bg-[#d4af37] text-[#0a3d62]">
             <i className="fa-brands fa-google"></i>
             Login With Google</button>
       </div>

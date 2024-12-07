@@ -14,8 +14,9 @@ export default function ReviewCard({review}) {
   </figure>
   <div className="card-body items-center text-center">
     <h2 className="card-title">{gameName}</h2>
-    <p className="text-lg font-semibold">Genres :<span className='text-gray-500'>{genres}</span></p>
-    <p className="text-lg mb-2 font-semibold">Rating :<span className='text-gray-500'>{rating} Stars</span></p>
+    <p className="text-lg font-semibold text-gray-800">Genres :<span className='text-gray-500'>{genres}</span></p>
+    <p className="text-lg mb-2 font-semibold text-gray-800">Rating :<span className='text-gray-500'>{rating} Stars</span></p>
+    <p className="text-lg mb-2 font-semibold text-gray-800">Year :<span className='text-gray-500'>{year}</span></p>
     
     <div className="card-actions">
       <Link to={`/reviewDetails/${_id}`}><button className="btn bg-[#0a3d62] text-[#d4af37]">Explore Details</button></Link>

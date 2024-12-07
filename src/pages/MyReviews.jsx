@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 export default function MyReviews() {
   const {user} = useContext(AuthContext)
   const loadedReviews = useLoaderData();
-    // const {_id,yourName,email,gameName,genres,details,photo,rating,year} = loadedWatchList
+    
   const setLoadedReviews = loadedReviews.filter((email) => email.email == user.email)
   const [reviews,setReviews]=useState(setLoadedReviews)
 
@@ -26,7 +26,7 @@ export default function MyReviews() {
         })
         .then(res => res.json())
         .then(data => {
-          console.log(data)
+          // console.log(data)
           if(data.deletedCount > 0){
           Swal.fire({
           title: "Deleted!",

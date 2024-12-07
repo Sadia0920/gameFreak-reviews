@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData,useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export default function UpdateReview() {
@@ -8,6 +8,7 @@ export default function UpdateReview() {
   const {_id,gameName,genres,details,photo,rating,year} = loadData;
   const {user} = useContext(AuthContext);
   const [selectedValue, setSelectedValue] = useState("");
+  const navigate = useNavigate()
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -27,7 +28,7 @@ export default function UpdateReview() {
         const rating = form.rating.value;
         const year = form.year.value;
         const newUpdatedReview = {yourName,email,gameName,genres,details,photo,rating,year}
-        console.log(newUpdatedReview)
+        // console.log(newUpdatedReview)
         // update data to the server
         fetch(`http://localhost:5000/reviews/${_id}`,{
             method : 'PUT',
@@ -38,7 +39,7 @@ export default function UpdateReview() {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             if(data.modifiedCount > 0){
                 Swal.fire({
                     title: 'Success',
@@ -47,6 +48,7 @@ export default function UpdateReview() {
                     confirmButtonText: 'Ok'
                   })
             }
+            navigate('/allReviews')
         })
         }
   return (

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { AuthContext } from '../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from 'sweetalert2';
 
 export default function Register() {
 
@@ -19,7 +20,7 @@ export default function Register() {
     const password = form.password.value;
 
     const newUser = {name,photo,email,password}
-    console.log(newUser);
+    // console.log(newUser);
 
     setErrorMessage('')
 
@@ -27,6 +28,12 @@ export default function Register() {
 
      if(!regex.test(password)){
       setErrorMessage('Please give a valid password with at lease one Uppercase, one Lowercase and length must be 6 character or more.')
+      Swal.fire({
+        title: 'Error',
+        text: errorMessage,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
       return;
     }
 
@@ -36,6 +43,12 @@ export default function Register() {
       setUser(result.user)
       form.reset();
       navigate('/')
+      Swal.fire({
+        title: 'Success',
+        text: 'Register Successfully',
+        icon: 'success',
+        confirmButtonText: 'Done'
+      })
     // UpdateUser
     const profile = {
       displayName: name,
@@ -43,23 +56,29 @@ export default function Register() {
     }
     updateUserInfo(profile)
     .then((res)=>{
-      console.log(res.user)
+      // console.log(res.user)
     })
     .catch(error => {
       setErrorMessage(error.message)
     })
     })
     .catch(error => {
-      console.log(error.message)
+      // console.log(error.message)
       setErrorMessage(error.message)
       setUser(null)
+      Swal.fire({
+        title: 'Error',
+        text: error.message,
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
     })
 
   }
   return (
-    <div className='my-7 w-6/12 mx-auto'>
+    <div className='my-7 w-11/12 lg:w-6/12 mx-auto'>
       <div className="hero bg-base-200 rounded-xl py-5">
-  <div className="hero-content flex-col w-8/12 mx-auto">
+  <div className="hero-content flex-col lg:w-8/12 mx-auto">
     <div className="text-center">
       <h1 className="text-3xl font-bold text-gray-800">Register now!</h1>
     </div>
@@ -88,16 +107,13 @@ export default function Register() {
             <span className="label-text">Password</span>
           </label>
           <input type={showPassword?'text':'password'}  placeholder="password" name='password' className="input input-bordered" required />
-          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[300PX]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
+          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[230px] lg:ml-[300PX]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
         </div>
         <div className="form-control mt-6">
           <button className="btn bg-[#0a3d62] text-white">Register</button>
         </div>
       </form>
-      {/* Show Error Message */}
-      {
-        errorMessage && <p className='text-red-600 mb-6 mx-auto px-2'>{errorMessage}</p>
-      }
+      
       <p className='font-semibold text-center px-5 mb-6'>Already have an account? please <Link className='border-b-2 border-[#0a3d62] text-[#0a3d62]' to='/login'>Login</Link></p>
     </div>
   </div>

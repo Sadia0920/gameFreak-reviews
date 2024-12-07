@@ -12,12 +12,12 @@ export default function Home() {
 
   return (
     <div className='mt-7'>
-      <Fade cascade duration={2000}>
+    <Fade cascade duration={2000}>
     <p className="text-center text-2xl font-bold">Welcome To</p> 
     <p className="text-center text-2xl font-bold mt-2">Game Freak Reviews</p>
-</Fade>
+    </Fade>
       <Hero></Hero>
-      <h1 className="text-4xl font-bold text-center mb-9">Highest Rated Game</h1>
+      <h1 className="text-3xl font-bold text-center mb-9">Highest Rated Game</h1>
       <div className='w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
       {
         limitedReviews.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)

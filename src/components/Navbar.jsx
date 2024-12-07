@@ -4,7 +4,6 @@ import './Navbar.css'
 import ThemeController from './ThemeController'
 import { AuthContext } from '../provider/AuthProvider'
 import { Tooltip } from 'react-tooltip'
-// import ReactTooltip from 'react-tooltip';
 
 export default function Navbar() {
 
@@ -24,23 +23,23 @@ export default function Navbar() {
 
     const links = <>
     <NavLink to='/' className='font-semibold text-gray-400'>Home</NavLink>
-    <NavLink to='/allReviews' className='ml-3 font-semibold text-gray-400'>All Reviews</NavLink>
+    <NavLink to='/allReviews' className='lg:ml-3 font-semibold text-gray-400'>All Reviews</NavLink>
   {
     user && 
     <>
-    <NavLink to='/addReviews' className='ml-3 font-semibold text-gray-400'>Add Reviews</NavLink>
-    <NavLink to='/myReviews' className='ml-3 font-semibold text-gray-400'>My Reviews</NavLink>
-    <NavLink to='/gameWatchList' className='ml-3 font-semibold text-gray-400'>Game Watch List</NavLink>
+    <NavLink to='/addReviews' className='lg:ml-3 font-semibold text-gray-400'>Add Reviews</NavLink>
+    <NavLink to='/myReviews' className='lg:ml-3 font-semibold text-gray-400'>My Reviews</NavLink>
+    <NavLink to='/gameWatchList' className='lg:ml-3 font-semibold text-gray-400'>Game Watch List</NavLink>
     </>
   }
     
     </>
   return (
     <div className='bg-[#0a3d62] text-[#d4af37] sticky top-0 z-10'>
-    <div className="navbar w-10/12 mx-auto">
+    <div className="navbar flex-col md:flex-row w-full md:w-10/12 mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+      <div tabIndex={0} role="button" className="btn p-0 btn-ghost lg:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
@@ -60,14 +59,14 @@ export default function Navbar() {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl font-bold"><i className="fa-solid fa-gamepad text-2xl"></i>GameFreak<span className='text-gray-400'>Reviews</span></a>
+    <a className="btn btn-ghost text-lg md:text-xl font-bold"><i className="fa-solid fa-gamepad text-xl md:text-2xl"></i>GameFreak<span className='text-gray-400 '>Reviews</span></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       {links}
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="md:navbar-end w-7/12 ml-14">
     {
       user?
       <>
