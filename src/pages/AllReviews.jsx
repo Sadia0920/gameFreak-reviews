@@ -13,12 +13,19 @@ export default function AllReviews() {
     const sortedData = [...data].sort((a, b) => b.year - a.year);
     setData(sortedData);
   }
-  const [selectedValue, setSelectedValue] = useState("");
+ 
+  const [selectedValue, setSelectedValue] = useState('');
   const handleChange = (event) => {
     event.preventDefault();
     setSelectedValue(event.target.value);
-    // const filterGenres = data.filter((genres) => genres.genres === selectedValue)
-    // setData(filterGenres);
+    
+    fetch('https://game-freak-reviews-server.vercel.app/reviews')
+    .then(res => res.json())
+    .then(data => {
+      
+      const filterGenres = data.filter((genre) => genre.genres === selectedValue)
+      setData(filterGenres);
+    })
 };
 
   return (
