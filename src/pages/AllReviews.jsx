@@ -14,16 +14,15 @@ export default function AllReviews() {
     setData(sortedData);
   }
  
-  const [selectedValue, setSelectedValue] = useState('');
   const handleChange = (event) => {
     event.preventDefault();
-    setSelectedValue(event.target.value);
+    const value = event.target.value;
     
     fetch('https://game-freak-reviews-server.vercel.app/reviews')
     .then(res => res.json())
     .then(data => {
-      
-      const filterGenres = data.filter((genre) => genre.genres === selectedValue)
+
+      const filterGenres = data.filter((genre) => genre.genres === value)
       setData(filterGenres);
     })
 };
@@ -43,8 +42,8 @@ export default function AllReviews() {
       </div>
       <div>
       <label className="form-control">
-           <select id="dropdown" name='genres' value={selectedValue} onChange={handleChange} className='input input-bordered w-full' >
-           <option value="" disabled>Filtered By Genres</option>
+           <select id="dropdown" name='genres' onChange={handleChange} className='input input-bordered w-full' >
+           <option value='' disabled>Filtered By Genres</option>
            <option value="Action">Action</option>
            <option value="RPG">RPG</option>
            <option value="Adventure">Adventure</option>
