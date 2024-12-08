@@ -15,7 +15,7 @@ export default function ReviewDetails() {
         const newWishList = {yourName,email,gameName,genres,details,photo,rating,year}
         // console.log(newWishList)
         // send data to the server
-        fetch('http://localhost:5000/watchList',{
+        fetch('https://game-freak-reviews-server.vercel.app/watchList',{
           method : 'POST',
           headers : {
               'content-type' : 'application/json'

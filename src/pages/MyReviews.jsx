@@ -21,7 +21,7 @@ export default function MyReviews() {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/reviews/${_id}`,{
+        fetch(`https://game-freak-reviews-server.vercel.app/reviews/${_id}`,{
           method : 'DELETE'
         })
         .then(res => res.json())

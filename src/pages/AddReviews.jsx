@@ -23,7 +23,7 @@ export default function AddReviews() {
         const newReview = {yourName,email,gameName,genres,details,photo,rating,year}
         // console.log(newReview)
         // send data to the server
-        fetch('http://localhost:5000/reviews',{
+        fetch('https://game-freak-reviews-server.vercel.app/reviews',{
             method : 'POST',
             headers : {
                 'content-type' : 'application/json'

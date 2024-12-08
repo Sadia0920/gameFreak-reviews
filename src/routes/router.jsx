@@ -25,17 +25,17 @@ const router =  createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: ()=>fetch('http://localhost:5000/reviews')
+                loader: ()=>fetch('https://game-freak-reviews-server.vercel.app/reviews')
             },
             {
                 path: '/allReviews',
                 element: <AllReviews></AllReviews>,
-                loader: ()=>fetch('http://localhost:5000/reviews')
+                loader: ()=>fetch('https://game-freak-reviews-server.vercel.app/reviews')
             },
             {
                 path: '/reviewDetails/:id',
                 element: <ReviewDetails></ReviewDetails>,
-                loader: ({params})=>fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader: ({params})=>fetch(`https://game-freak-reviews-server.vercel.app/reviews/${params.id}`)
             },
            {
                 path: '/addReviews',
@@ -44,17 +44,17 @@ const router =  createBrowserRouter([
            {
                 path: '/myReviews',
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
-                loader: ()=>fetch('http://localhost:5000/reviews')
+                loader: ()=>fetch('https://game-freak-reviews-server.vercel.app/reviews')
            },
            {
                path: '/updateReview/:id',
                element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
-               loader: ({params})=>fetch(`http://localhost:5000/reviews/${params.id}`)
+               loader: ({params})=>fetch(`https://game-freak-reviews-server.vercel.app/reviews/${params.id}`)
           },
            {
                 path: '/gameWatchList',
                 element: <PrivateRoute><GameWatchList></GameWatchList></PrivateRoute>,
-                loader: ()=>fetch(`http://localhost:5000/watchList`)
+                loader: ()=>fetch(`https://game-freak-reviews-server.vercel.app/watchList`)
            },
            {
                 path: '/register',

@@ -30,7 +30,7 @@ export default function UpdateReview() {
         const newUpdatedReview = {yourName,email,gameName,genres,details,photo,rating,year}
         // console.log(newUpdatedReview)
         // update data to the server
-        fetch(`http://localhost:5000/reviews/${_id}`,{
+        fetch(`https://game-freak-reviews-server.vercel.app/reviews/${_id}`,{
             method : 'PUT',
             headers : {
                 'content-type' : 'application/json'
