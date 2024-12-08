@@ -32,8 +32,11 @@ export default function AllReviews() {
       <h1 className='text-3xl font-bold text-center mt-9'>All Reviews</h1>
       <div className='text-center mt-6 mb-9 flex justify-between items-center'>
       <div >
+      <div className="label">
+               <span className="label-text font-bold">Sort by Rating or Year</span>
+               </div>
       <details className="dropdown">
-  <summary className="btn m-1">Sort by Rating or Year</summary>
+  <summary className="btn m-1">Sort</summary>
   <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
     <li><a onClick={sortByRating}>Rating</a></li>
     <li><a onClick={sortByYear}>Year</a></li>
@@ -42,6 +45,9 @@ export default function AllReviews() {
       </div>
       <div>
       <label className="form-control">
+      <div className="label">
+               <span className="label-text font-bold">Filtered By Genres</span>
+               </div>
            <select id="dropdown" name='genres' onChange={handleChange} className='input input-bordered w-full' >
            <option value='' disabled>Filtered By Genres</option>
            <option value="Action">Action</option>
