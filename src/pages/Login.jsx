@@ -14,7 +14,6 @@ export default function Login() {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-
     const user = {email,password}
     // console.log(user);
 
@@ -47,19 +46,19 @@ export default function Login() {
   const handleGoogleLogin = () => {
     signInWithGoogle()
     .then(result => {
-      console.log(result.user)
+      // console.log(result.user)
       setUser(result.user)
       navigate('/')
     })
     .catch(error => {
-      console.log(error)
+      // console.log(error)
       setUser(null)
     })
   }
   return (
     <div className='my-7 w-11/12 lg:w-6/12 mx-auto'>
       <div className="hero bg-base-200 rounded-xl py-5">
-  <div className="hero-content flex-col lg:w-8/12 mx-auto">
+  <div className="hero-content flex-col w-full md:w-7/12 lg:w-8/12 mx-auto">
     <div className="text-center">
       <h1 className="text-3xl font-bold text-gray-800">Login now!</h1>
     </div>
@@ -76,7 +75,7 @@ export default function Login() {
             <span className="label-text">Password</span>
           </label>
           <input type={showPassword?'text':'password'} placeholder="password" name='password' className="input input-bordered" required />
-          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[230px] lg:ml-[300PX]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
+          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[250px] lg:ml-[300px]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>

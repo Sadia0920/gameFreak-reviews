@@ -78,7 +78,7 @@ export default function Register() {
   return (
     <div className='my-7 w-11/12 lg:w-6/12 mx-auto'>
       <div className="hero bg-base-200 rounded-xl py-5">
-  <div className="hero-content flex-col lg:w-8/12 mx-auto">
+  <div className="hero-content flex-col w-full md:w-7/12 lg:w-8/12 mx-auto">
     <div className="text-center">
       <h1 className="text-3xl font-bold text-gray-800">Register now!</h1>
     </div>
@@ -107,7 +107,7 @@ export default function Register() {
             <span className="label-text">Password</span>
           </label>
           <input type={showPassword?'text':'password'}  placeholder="password" name='password' className="input input-bordered" required />
-          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[230px] lg:ml-[300PX]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
+          <a onClick={()=>setShowPassword(!showPassword)} className="btn btn-xs text-lg absolute mt-12 ml-[250px] lg:ml-[300px]">{showPassword?<FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>}</a>
         </div>
         <div className="form-control mt-6">
           <button className="btn bg-[#0a3d62] text-white">Register</button>
