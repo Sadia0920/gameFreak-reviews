@@ -4,6 +4,7 @@ import PremiumAccess from '../components/PremiumAccess'
 import ReviewCard from '../components/ReviewCard'
 import { useLoaderData} from 'react-router-dom'
 import { Fade } from 'react-awesome-reveal'
+import FAQ from '../components/FAQ'
 
 export default function Home() {
   const loadedReviews = useLoaderData();
@@ -25,6 +26,7 @@ export default function Home() {
       </div>
       <GamingPlatform></GamingPlatform>
       <PremiumAccess></PremiumAccess>
+      <FAQ></FAQ>
     </div>
   )
 }

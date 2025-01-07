@@ -24,6 +24,7 @@ export default function Navbar() {
     const links = <>
     <NavLink to='/' className='font-semibold text-gray-400'>Home</NavLink>
     <NavLink to='/allReviews' className='lg:ml-3 font-semibold text-gray-400'>All Reviews</NavLink>
+    <NavLink to='/aboutUs' className='lg:ml-3 font-semibold text-gray-400'>About Us</NavLink>
   {
     user && 
     <>

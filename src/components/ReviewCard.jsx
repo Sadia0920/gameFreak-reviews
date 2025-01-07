@@ -13,7 +13,7 @@ export default function ReviewCard({review}) {
       className="rounded-xl w-full h-full" />
   </figure>
   <div className="card-body items-center text-center">
-    <h2 className="card-title">{gameName}</h2>
+    <h2 className="card-title text-gray-950">{gameName}</h2>
     <p className="text-lg font-semibold text-gray-800">Genres :<span className='text-gray-500'>{genres}</span></p>
     <p className="text-lg mb-2 font-semibold text-gray-800">Rating :<span className='text-gray-500'>{rating} Stars</span></p>
     <p className="text-lg mb-2 font-semibold text-gray-800">Year :<span className='text-gray-500'>{year}</span></p>

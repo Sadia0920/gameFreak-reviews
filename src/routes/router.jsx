@@ -15,6 +15,7 @@ import MobileGameDetails from "../pages/MobileGameDetails";
 import PrivateRoute from "./PrivateRoute";
 import ReviewDetails from "../pages/ReviewDetails";
 import UpdateReview from "../pages/UpdateReview";
+import AboutUs from './../pages/AboutUs';
 
 const router =  createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const router =  createBrowserRouter([
                 path: '/allReviews',
                 element: <AllReviews></AllReviews>,
                 loader: ()=>fetch('https://game-freak-reviews-server.vercel.app/reviews')
+            },
+            {
+                path: '/aboutUs',
+                element: <AboutUs></AboutUs>,
             },
             {
                 path: '/reviewDetails/:id',
